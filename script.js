@@ -236,9 +236,9 @@ function createDiagram(version) {
         const descriptionPositions = [
             { x: currentX + segmentWidth / 2, y: 180, textAnchor: "start" },
             { x: currentX + segmentWidth / 2, y: 200, textAnchor: "start" },
-            { x: currentX + segmentWidth / 2, y: 220, textAnchor: "middle" },
-            { x: currentX + segmentWidth / 2, y: 240, textAnchor: "end" },
-            { x: currentX + segmentWidth / 2, y: 260, textAnchor: "end" }
+            { x: currentX + segmentWidth / 2, y: 220, textAnchor: "start" },
+            { x: currentX + segmentWidth / 2, y: 240, textAnchor: "start" },
+            { x: currentX + segmentWidth / 2, y: 260, textAnchor: "start" }
         ];
 
         const descPos = descriptionPositions[i];
