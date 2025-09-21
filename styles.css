@@ -3,23 +3,31 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #0d0d0d;
     min-height: 100vh;
-    color: #333;
+    color: #e5e7eb;
 }
 
 .container {
-    background: white;
+    background: #111827;
     border-radius: 20px;
-    padding: 30px;
+    padding: 2px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
 h1 {
     text-align: center;
-    color: #4a5568;
-    margin-bottom: 30px;
-    font-size: 2.5em;
+    background: #111827;
+    margin-bottom: 10px;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: 500;
 }
 
 .version-selector {
@@ -31,11 +39,11 @@ h1 {
     background: #4299e1;
     color: white;
     border: none;
-    padding: 12px 24px;
-    margin: 5px;
-    border-radius: 25px;
+    padding: 6px 12px;
+    margin: 2px;
+    border-radius: 2px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
     transition: all 0.3s ease;
 }
@@ -51,32 +59,33 @@ h1 {
 }
 
 .uuid-display {
-    background: #f7fafc;
-    border-radius: 15px;
-    padding: 30px;
-    margin: 20px 0;
-    border: 3px solid #e2e8f0;
+    background: #1f2937;
+    border-radius: 5px;
+    color: white;
+    padding: 2px;
+    margin: 5px 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .uuid-container {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .diagram-container {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    margin: 20px 0;
+    background: #1f2937;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
     border: 2px solid #e2e8f0;
 }
 
 .uuid-main {
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 30px;
-    color: #2d3748;
+    margin-bottom: 24px;
+    color: #00e6e6;
 }
 
 .breakdown-table {
@@ -88,14 +97,14 @@ h1 {
 
 .table-header {
     display: flex;
-    background: #4a5568;
-    color: white;
     font-weight: bold;
+    background: #1f2937;
+    color: #00e6e6;
 }
 
 .table-row {
     display: flex;
-    background: white;
+    background: #111827;
     border-top: 1px solid #e2e8f0;
 }
 
@@ -104,6 +113,8 @@ h1 {
     text-align: center;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     border-right: 1px solid #e2e8f0;
+    color: #e5e7eb;
+    font-size: 0.8em;
 }
 
 .table-cell:last-child {
@@ -117,37 +128,40 @@ h1 {
 .table-cell.cell5 { flex: 2.5; }
 
 .description {
-    background: #ebf8ff;
-    border-left: 4px solid #4299e1;
-    padding: 20px;
-    margin: 20px 0;
+    background: rgba(0, 230, 230, 0.08);
+    border-left: 4px solid #00e6e6;
+    padding: 10px;
+    margin: 10px 0;
     border-radius: 8px;
+    font-size: 0.8em;
 }
 
 .description h3 {
-    color: #2b6cb0;
+    color: #00e6e6;
     margin-top: 0;
 }
 
 .timeline {
-    background: #f0fff4;
+    background: #111827;
     border-radius: 12px;
     padding: 20px;
     margin: 20px 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .timeline h4 {
-    color: #22543d;
+    color: #a855f7;
     margin-top: 0;
 }
 
 .timeline-item {
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    background: white;
+    background: #0d0d0d;
     padding: 10px;
     margin: 8px 0;
     border-radius: 6px;
-    border-left: 4px solid #38a169;
+    border-left: 4px solid #a855f7;
+    color: #f9fafb;
 }
 
 .pros-cons {
@@ -163,32 +177,33 @@ h1 {
 }
 
 .pros {
-    background: #f0fff4;
-    border-left: 4px solid #38a169;
+    background: rgba(16, 185, 129, 0.08);
+    border-left: 4px solid #10b981;
 }
 
 .cons {
-    background: #fffaf0;
-    border-left: 4px solid #dd6b20;
+    background: rgba(239, 68, 68, 0.08);
+    border-left: 4px solid #ef4444;
 }
 
 .pros h4 {
-    color: #22543d;
+    color: #10b981;
     margin-top: 0;
 }
 
 .cons h4 {
-    color: #744210;
+    color: #ef4444;
     margin-top: 0;
 }
 
 .info-box {
-    background: #e6fffa;
-    border-left: 4px solid #38a169;
+    background: rgba(168, 85, 247, 0.1);
+    border-left: 4px solid #a855f7;
     padding: 15px;
     margin: 15px 0;
     border-radius: 8px;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    color: #e5e7eb;
 }
 
 /* D3.js specific styles */
@@ -212,7 +227,11 @@ h1 {
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     font-size: 12px;
     font-weight: bold;
-    fill: #2d3748;
+    fill: #e5e7eb;                /* text color */
+    paint-order: stroke;
+    stroke: #111827;              /* background-like stroke */
+    stroke-width: 4px;            /* thickness */
+    stroke-linejoin: round;
 }
 
 .arrow {

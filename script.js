@@ -109,7 +109,7 @@ const versions = {
         labels: ["Timestamp", "Timestamp", "Ver 7 + Rand", "Var + Rand", "Random (74 bits)"],
         descriptions: ["Unix timestamp (milliseconds)", "Unix timestamp (milliseconds)", "Version (7) + random data", "Variant + random data", "Random data (74 bits!)"],
         colors: ["#e53e3e", "#dd6b20", "#38a169", "#3182ce", "#805ad5"],
-        title: "Version 7: The Superstar (2024) ⭐",
+        title: "Version 7: The Superstar (2024)",
         description: "Version 7 is like the superhero of UUIDs! It combines the best parts of all previous versions - it has timestamps for organization AND random data for security.",
         analogy: "It's like having a perfectly organized library where new books automatically go in chronological order, but each book also has a unique secret code!",
         timeline: [
@@ -165,8 +165,8 @@ function createDiagram(version) {
 
     // Create SVG container
     const containerWidth = 800;
-    const containerHeight = 300;
-    const margin = { top: 20, right: 40, bottom: 100, left: 40 };
+    const containerHeight = 380;
+    const margin = { top: 0, right: 40, bottom: 100, left: 40 };
     const width = containerWidth - margin.left - margin.right;
     const height = containerHeight - margin.top - margin.bottom;
 
@@ -235,10 +235,10 @@ function createDiagram(version) {
         // Calculate description positions to avoid overlap
         const descriptionPositions = [
             { x: currentX + segmentWidth / 2, y: 180, textAnchor: "start" },
-            { x: currentX + segmentWidth / 2, y: 200, textAnchor: "start" },
             { x: currentX + segmentWidth / 2, y: 220, textAnchor: "start" },
-            { x: currentX + segmentWidth / 2, y: 240, textAnchor: "start" },
-            { x: currentX + segmentWidth / 2, y: 260, textAnchor: "start" }
+            { x: currentX + segmentWidth / 2, y: 260, textAnchor: "start" },
+            { x: currentX + segmentWidth / 2, y: 300, textAnchor: "start" },
+            { x: currentX + segmentWidth / 2, y: 360, textAnchor: "start" }
         ];
 
         const descPos = descriptionPositions[i];
@@ -251,16 +251,20 @@ function createDiagram(version) {
 
         g.append("path")
             .attr("class", "connection-line")
+            .lower()
             .attr("d", `M ${lineStartX} ${lineStartY} L ${lineStartX} ${lineStartY + 20} L ${lineEndX} ${lineEndY}`)
             .attr("marker-end", "url(#arrowhead)");
 
         // Add description text with better positioning
-        g.append("text")
+        const descriptionText = g.append("text")
             .attr("class", "description-text")
             .attr("x", descPos.x)
             .attr("y", descPos.y)
             .attr("text-anchor", descPos.textAnchor)
             .text(version.descriptions[i]);
+
+        // Bring text to front
+        descriptionText.raise();
 
         currentX += segmentWidth + segmentSpacing;
     });
@@ -280,9 +284,14 @@ function showVersion(versionNum) {
 
     let html = `
         <div class="uuid-display">
-            <h2 style="text-align: center; color: #2d3748; margin-bottom: 20px;">${version.title}</h2>
+            <h2 style="text-align: center; color: #c6cdd8ff; margin-bottom: 10px;">${version.title}</h2>
             
             <div class="uuid-container">
+                <div class="description">
+                    <p><strong>${version.description}</strong></p>
+                    <p><em>${version.analogy}</em></p>
+                </div>
+
                 <div class="diagram-container">
                     <div class="uuid-main">Example UUID v${versionNum}: ${version.uuid}</div>
                     <div id="diagram-container"></div>
@@ -315,11 +324,6 @@ function showVersion(versionNum) {
                 </div>
             </div>
             
-            <div class="description">
-                <h3>What makes it special?</h3>
-                <p><strong>${version.description}</strong></p>
-                <p><em>${version.analogy}</em></p>
-            </div>
 
             ${version.timeline ? `
                 <div class="timeline">
